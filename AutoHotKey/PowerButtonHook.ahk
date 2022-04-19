@@ -30,7 +30,7 @@ WM_POWERBROADCAST(wParam,lParam) {
 		if(subStr(strGet(lParam),1,strLen(strGet(lParam))-1)=strGet(&newGUID)){
 			Send #^+B ; Rewake screen by resetting video driver to prevent display from actually turning off
 			HttpPost("services/script/tv_amplifier_power") ; Change to whatever you want
-			sleep 10000 ; To prevent AV receiver and TV from
+			sleep 10000 ; To prevent AV receiver and TV from being switched on and off too much and becoming out of sync, remove if not needed
 		}
 	}
 	return

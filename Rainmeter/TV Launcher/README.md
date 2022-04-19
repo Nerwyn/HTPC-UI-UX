@@ -2,6 +2,8 @@
 
 A Rainmeter skin for HTPCs
 
+![Screenshot of TV Launcher Rainmeter Skins on Desktop](/Rainmeter/TV%20Launcher/%40Resources/TV%20Launcher%20Example.png 'TV Launcher Rainmeter Skin')
+
 Makes use of FEleven for maximizing windows (included) and Python for one time generation of copies of icons with transparent borders. FEleven requires AutoHotKey to run.
 https://github.com/iglvzx/FEleven
 https://www.autohotkey.com/
