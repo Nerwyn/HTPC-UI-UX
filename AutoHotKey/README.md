@@ -21,7 +21,7 @@ This is a modified version of code found in this AutoHotKey forum thread, vast m
 
 https://www.autohotkey.com/boards/viewtopic.php?t=17457
 
-If you want to remap your PC keyboard/case power button to a Broadlink smart IR remote, I recommend either configuring it with Home Assistant or using this implemenatation of a local HTTP server for Broadlink communication found here:
+If you want to remap your PC keyboard/case power button to a Broadlink smart IR remote, I recommend either configuring it with Home Assistant or using this implementation of a local HTTP server for Broadlink communication found here:
 
 https://github.com/radinsky/broadlink-http-rest
 
