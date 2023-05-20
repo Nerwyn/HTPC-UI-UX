@@ -16,9 +16,47 @@ Volume_Down::
 	HttpPost("services/script/amplifier_volume_down")
 return
 
-Media_Play_Pause::
-	Send, {Space}
-return
+; Replace directional key keyholds with scrolling for better streaming app navigation
+; Adapted from this post https://www.autohotkey.com/board/topic/123082-do-something-while-key-is-held-down/
+Up::
+	now := A_TickCount
+	while GetKeyState("Up", "P")
+			if (A_TickCount-now > 200) {
+				Send {WheelUp 1}
+				Sleep 10
+			}
+	Send {Up}
+	return
+
+Down::
+	now := A_TickCount
+	while GetKeyState("Down", "P")
+			if (A_TickCount-now > 200) {
+				Send {WheelDown 1}
+				Sleep 10
+			}
+	Send {Down}
+	return
+
+Left::
+	now := A_TickCount
+	while GetKeyState("Left", "P")
+			if (A_TickCount-now > 200) {
+				Send {WheelLeft 1}
+				Sleep 250
+			}
+	Send {Left}
+	return
+
+Right::
+	now := A_TickCount
+	while GetKeyState("Right", "P")
+			if (A_TickCount-now > 200) {
+				Send {WheelRight 1}
+				Sleep 250
+			}
+	Send {Right}
+	return
 
 HttpPost(endpoint) {
 	token := "thisisafaketokenputyourshere"
