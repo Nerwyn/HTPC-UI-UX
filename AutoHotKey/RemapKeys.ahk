@@ -20,43 +20,60 @@ return
 ; Adapted from this post https://www.autohotkey.com/board/topic/123082-do-something-while-key-is-held-down/
 Up::
 	now := A_TickCount
+	scroll := false
 	while GetKeyState("Up", "P")
-			if (A_TickCount-now > 200) {
-				Send {WheelUp 1}
-				Sleep 10
-			}
-	Send {Up}
-	return
+		if (A_TickCount-now > 200) {
+			scroll := true
+			Send {WheelUp 1}
+			Sleep 20
+		}
+	if not scroll {
+		Send {Up}
+	}
+return
 
 Down::
 	now := A_TickCount
+	scroll := false
 	while GetKeyState("Down", "P")
-			if (A_TickCount-now > 200) {
-				Send {WheelDown 1}
-				Sleep 10
-			}
-	Send {Down}
-	return
+		if (A_TickCount-now > 200) {
+			scroll := true
+			Send {WheelDown 1}
+			Sleep 20
+		}
+	if not scroll {
+		Send {Down}
+	}
+return
 
 Left::
 	now := A_TickCount
+	scroll := false
 	while GetKeyState("Left", "P")
-			if (A_TickCount-now > 200) {
-				Send {WheelLeft 1}
-				Sleep 250
-			}
-	Send {Left}
-	return
+		if (A_TickCount-now > 200) {
+			scroll := true
+			Send {WheelLeft 1}
+			Sleep 250
+		}
+	if not scroll {
+		Send {Left}
+	}
+return
 
 Right::
 	now := A_TickCount
+	scroll := false
 	while GetKeyState("Right", "P")
-			if (A_TickCount-now > 200) {
-				Send {WheelRight 1}
-				Sleep 250
-			}
-	Send {Right}
-	return
+		if (A_TickCount-now > 200) {
+			scroll := true
+			Send {WheelRight 1}
+
+Sleep 250
+		}
+	if not scroll {
+		Send {Right}
+	}
+return
 
 HttpPost(endpoint) {
 	token := "thisisafaketokenputyourshere"
