@@ -74,6 +74,20 @@ Right::
 	}
 return
 
+LAlt & F4::
+	; Using a new HTPC launcher app. Ensure that it can't be closed by remote close button.
+	IfWinActive, launcher
+		return
+	; YouTube TV in browser does not respect Alt F4 in full screen, have to exit full screen first.
+	IfWinActive, YouTube on TV
+		Send {F11}
+		Sleep 100
+	Send !{F4}
+	Sleep 100
+	; Switch back to HTPC launcher app after closing a different app.
+	WinActivate, launcher
+return
+
 HttpPost(endpoint) {
 	token := "thisisafaketokenputyourshere"
 	root := "https://yourserveraddress.com"
