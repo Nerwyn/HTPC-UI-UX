@@ -67,8 +67,7 @@ Right::
 		if (A_TickCount-now > 200) {
 			scroll := true
 			Send {WheelRight 1}
-
-Sleep 250
+			Sleep 250
 		}
 	if not scroll {
 		Send {Right}
