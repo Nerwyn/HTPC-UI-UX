@@ -25,7 +25,7 @@ Up::
 		if (A_TickCount-now > 200) {
 			scroll := true
 			Send {WheelUp 1}
-			Sleep 20
+			Sleep 30
 		}
 	if not scroll {
 		Send {Up}
@@ -39,7 +39,7 @@ Down::
 		if (A_TickCount-now > 200) {
 			scroll := true
 			Send {WheelDown 1}
-			Sleep 20
+			Sleep 30
 		}
 	if not scroll {
 		Send {Down}
@@ -75,17 +75,30 @@ Right::
 return
 
 LAlt & F4::
-	; Using a new HTPC launcher app. Ensure that it can't be closed by remote close button.
 	IfWinActive, launcher
 		return
-	; YouTube TV in browser does not respect Alt F4 in full screen, have to exit full screen first.
-	IfWinActive, YouTube on TV
+	IfWinActive, YouTube on TV 
 		Send {F11}
 		Sleep 100
 	Send !{F4}
-	Sleep 100
-	; Switch back to HTPC launcher app after closing a different app.
+	Sleep 200
 	WinActivate, launcher
+return
+
+Esc::
+	IfWinActive, Netflix	
+		Send {BackSpace}
+		Sleep 200
+		SendInput #+{Enter}
+		return
+	Send {Esc}
+return
+
+Media_Play_Pause::
+	IfWinActive, Prime Video for Windows
+		Send {Space}
+		return
+	Send {Media_Play_Pause}
 return
 
 HttpPost(endpoint) {
