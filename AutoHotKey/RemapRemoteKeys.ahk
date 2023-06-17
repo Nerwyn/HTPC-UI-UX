@@ -75,29 +75,38 @@ Right::
 return
 
 LAlt & F4::
-	IfWinActive, launcher
-		return
-	IfWinActive, YouTube on TV 
+	IfWinActive, YouTube on TV
+	{
 		Send {F11}
 		Sleep 100
+		; Send !{F4}
+	}
+	IfWinActive, launcher
+	{
+		return
+	}
 	Send !{F4}
 	Sleep 200
 	WinActivate, launcher
 return
 
 Esc::
-	IfWinActive, Netflix	
+	IfWinActive, Netflix
+	{
 		Send {BackSpace}
 		Sleep 200
 		SendInput #+{Enter}
 		return
+	}
 	Send {Esc}
 return
 
-Media_Play_Pause::
+~Media_Play_Pause::
 	IfWinActive, Prime Video for Windows
+	{
 		Send {Space}
 		return
+	}
 	Send {Media_Play_Pause}
 return
 
